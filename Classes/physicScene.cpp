@@ -8,9 +8,7 @@
 
 #include "physicScene.h"
 
-
 USING_NS_CC;
-
 
 static int tag = 0;
 Scene* physic::createScene()
@@ -25,13 +23,14 @@ Scene* physic::createScene()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     //使用PhysicalsBody的create方法创建自己想要的物体。
     //PHYSICSBODY_MATERIAL_DEFAULT宏表示的是创建的Body的默认材质，3是边线宽度。编译运行我们会看到场景边上有红色的边界。
-    auto body = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
+    auto body = PhysicsBody::createEdgeBox(Size(visibleSize.width*0.8, visibleSize.height*0.8), PHYSICSBODY_MATERIAL_DEFAULT, 3);
+    body->setDynamic(false);
     auto edgeNode = Node::create();
     edgeNode->setPosition(Point(visibleSize.width/2,visibleSize.height/2));
     edgeNode->setPhysicsBody(body);
     scene->addChild(edgeNode);
     
-    // 'layer' is an autorelease object
+    //'layer' is an autorelease object
     auto layer = physic::create();
     //将这个World传到Layer中。所以我们在HelloWorld类中加入一个函数。将这个world存起来。
     layer->setPhyWorld(scene->getPhysicsWorld());
@@ -131,8 +130,15 @@ void physic::addNewSpriteAtPosition(Point p)
     sprite->setTag(tag);
     tag += 1;
     auto body = PhysicsBody::createCircle(sprite->getContentSize().width / 2);
+    
+    Vector<PhysicsShape*>  _shapes =  body->getShapes();
+    _shapes.at(0)->setRestitution(0);
+    
     sprite->setPhysicsBody(body);
     sprite->setPosition(p);
+    
+    Point _ballStartingVelocity = Point(0, -500.0f);
+    body->setVelocity(_ballStartingVelocity);
     this->addChild(sprite);
 }
 

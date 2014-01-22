@@ -78,6 +78,24 @@
 		81334600187E4D8300268207 /* star1.png in Resources */ = {isa = PBXBuildFile; fileRef = 813345F2187E4D8300268207 /* star1.png */; };
 		81334611187E748500268207 /* physicScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81334610187E748500268207 /* physicScene.cpp */; };
 		81334612187E748500268207 /* physicScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81334610187E748500268207 /* physicScene.cpp */; };
+		815B655318867AC900BB46CA /* match.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 815B655218867AC900BB46CA /* match.cpp */; };
+		815B655418867AC900BB46CA /* match.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 815B655218867AC900BB46CA /* match.cpp */; };
+		815B655C1886807D00BB46CA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 815B65551886807D00BB46CA /* background.png */; };
+		815B655D1886807D00BB46CA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 815B65551886807D00BB46CA /* background.png */; };
+		815B655E1886807D00BB46CA /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 815B65561886807D00BB46CA /* background1.jpg */; };
+		815B655F1886807D00BB46CA /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 815B65561886807D00BB46CA /* background1.jpg */; };
+		815B65601886807D00BB46CA /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 815B65571886807D00BB46CA /* background1.png */; };
+		815B65611886807D00BB46CA /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 815B65571886807D00BB46CA /* background1.png */; };
+		815B65621886807D00BB46CA /* background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 815B65581886807D00BB46CA /* background2.jpg */; };
+		815B65631886807D00BB46CA /* background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 815B65581886807D00BB46CA /* background2.jpg */; };
+		815B65641886807D00BB46CA /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 815B65591886807D00BB46CA /* background2.png */; };
+		815B65651886807D00BB46CA /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 815B65591886807D00BB46CA /* background2.png */; };
+		815B65661886807D00BB46CA /* background3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 815B655A1886807D00BB46CA /* background3.jpg */; };
+		815B65671886807D00BB46CA /* background3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 815B655A1886807D00BB46CA /* background3.jpg */; };
+		815B65681886807D00BB46CA /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = 815B655B1886807D00BB46CA /* background3.png */; };
+		815B65691886807D00BB46CA /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = 815B655B1886807D00BB46CA /* background3.png */; };
+		819C6860188A1B6D00D9EC8E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 819C685F188A1B6D00D9EC8E /* Icon.png */; };
+		819C6861188A1B6D00D9EC8E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 819C685F188A1B6D00D9EC8E /* Icon.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -313,6 +331,16 @@
 		813345F2187E4D8300268207 /* star1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star1.png; sourceTree = "<group>"; };
 		8133460F187E747700268207 /* physicScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physicScene.h; sourceTree = "<group>"; };
 		81334610187E748500268207 /* physicScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = physicScene.cpp; sourceTree = "<group>"; };
+		815B654B18867ABB00BB46CA /* match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = match.h; path = ../Classes/match.h; sourceTree = "<group>"; };
+		815B655218867AC900BB46CA /* match.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = match.cpp; path = ../Classes/match.cpp; sourceTree = "<group>"; };
+		815B65551886807D00BB46CA /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		815B65561886807D00BB46CA /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
+		815B65571886807D00BB46CA /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
+		815B65581886807D00BB46CA /* background2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpg; sourceTree = "<group>"; };
+		815B65591886807D00BB46CA /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		815B655A1886807D00BB46CA /* background3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background3.jpg; sourceTree = "<group>"; };
+		815B655B1886807D00BB46CA /* background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3.png; sourceTree = "<group>"; };
+		819C685F188A1B6D00D9EC8E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -395,6 +423,8 @@
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 				8133460F187E747700268207 /* physicScene.h */,
 				81334610187E748500268207 /* physicScene.cpp */,
+				815B654B18867ABB00BB46CA /* match.h */,
+				815B655218867AC900BB46CA /* match.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -514,6 +544,14 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				819C685F188A1B6D00D9EC8E /* Icon.png */,
+				815B65551886807D00BB46CA /* background.png */,
+				815B65561886807D00BB46CA /* background1.jpg */,
+				815B65571886807D00BB46CA /* background1.png */,
+				815B65581886807D00BB46CA /* background2.jpg */,
+				815B65591886807D00BB46CA /* background2.png */,
+				815B655A1886807D00BB46CA /* background3.jpg */,
+				815B655B1886807D00BB46CA /* background3.png */,
 				813345EB187E4D8300268207 /* btn.png */,
 				813345EC187E4D8300268207 /* btn0.png */,
 				813345ED187E4D8300268207 /* btn1.png */,
@@ -729,8 +767,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819C6860188A1B6D00D9EC8E /* Icon.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				815B65681886807D00BB46CA /* background3.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
+				815B65601886807D00BB46CA /* background1.png in Resources */,
 				813345F7187E4D8300268207 /* btn1.png in Resources */,
 				813345F3187E4D8300268207 /* btn.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
@@ -739,21 +780,26 @@
 				813345FD187E4D8300268207 /* point.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
+				815B65641886807D00BB46CA /* background2.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				815B65661886807D00BB46CA /* background3.jpg in Resources */,
 				813345FF187E4D8300268207 /* star1.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				813345FB187E4D8300268207 /* Marker Felt.ttf in Resources */,
+				815B655E1886807D00BB46CA /* background1.jpg in Resources */,
 				813345F9187E4D8300268207 /* circle.png in Resources */,
+				815B65621886807D00BB46CA /* background2.jpg in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
+				815B655C1886807D00BB46CA /* background.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -763,12 +809,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
+				815B65691886807D00BB46CA /* background3.png in Resources */,
+				815B655D1886807D00BB46CA /* background.png in Resources */,
 				813345FC187E4D8300268207 /* Marker Felt.ttf in Resources */,
 				813345FE187E4D8300268207 /* point.png in Resources */,
+				815B65651886807D00BB46CA /* background2.png in Resources */,
+				815B655F1886807D00BB46CA /* background1.jpg in Resources */,
+				815B65611886807D00BB46CA /* background1.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				815B65631886807D00BB46CA /* background2.jpg in Resources */,
+				819C6861188A1B6D00D9EC8E /* Icon.png in Resources */,
 				81334600187E4D8300268207 /* star1.png in Resources */,
 				813345F8187E4D8300268207 /* btn1.png in Resources */,
 				813345F4187E4D8300268207 /* btn.png in Resources */,
+				815B65671886807D00BB46CA /* background3.jpg in Resources */,
 				5087E75417EB910900C73F5D /* CloseSelected.png in Resources */,
 				5087E75517EB910900C73F5D /* HelloWorld.png in Resources */,
 				813345F6187E4D8300268207 /* btn0.png in Resources */,
@@ -785,6 +839,7 @@
 			files = (
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				81334611187E748500268207 /* physicScene.cpp in Sources */,
+				815B655318867AC900BB46CA /* match.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -800,6 +855,7 @@
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				81334612187E748500268207 /* physicScene.cpp in Sources */,
+				815B655418867AC900BB46CA /* match.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,7 +919,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SHANGHAI BREAK ENTERTAINMENT (KAD6P252AJ)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -884,6 +940,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "29060BD1-F5F6-499A-AFC6-429D4DE18B19";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -894,7 +951,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SHANGHAI BREAK ENTERTAINMENT (KAD6P252AJ)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -913,6 +970,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "29060BD1-F5F6-499A-AFC6-429D4DE18B19";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

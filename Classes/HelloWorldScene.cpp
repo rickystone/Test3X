@@ -1,4 +1,6 @@
+
 #include "HelloWorldScene.h"
+#include "match.h"
 
 USING_NS_CC;
 
@@ -29,112 +31,9 @@ bool HelloWorld::init()
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
-
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
     
-	closeItem->setPosition(Point(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Point::ZERO);
-    this->addChild(menu, 1);
-
-    /////////////////////////////
-    // 3. add your codes below...
-
-    // add a label shows "Hello World"
-    // create and initialize a label
-    
-    auto label = LabelTTF::create("Hello World", "Arial", 24);
-    
-    // position the label on the center of the screen
-    label->setPosition(Point(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height));
-
-    // add the label as a child to this layer
-    this->addChild(label, 1);
-
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
-    
-    
-	auto layer = LayerColor::create(Color4B(0, 0, 0, 255));
-	addChild(layer, -10);
-    
-	//∞¥≈•
-	auto btnSprite = Sprite::create("btn.png");
-	btnSprite->setPosition(Point(200, 250));
-	btnSprite->setAnchorPoint(Point(0, 0));
-	this->addChild(btnSprite, 1);
-	
-	auto starSprite = Sprite::create("star1.png");
-	starSprite->setScale(0.4f);
-	this->addChild(starSprite, 10);
-    
-	auto _emitter = particleInit();
-	starSprite->setPosition(Point(btnSprite->getPosition().x + btnSprite->getContentSize().height / 2 - 4, btnSprite->getPosition().y));
-	
-    
-	_emitter->setPosition(Point(btnSprite->getPosition().x + btnSprite->getContentSize().height / 2 - 6, btnSprite->getPosition().y + 3));
-    
-	float X = btnSprite->getContentSize().height / 2;
-	auto path = MyPathFun(X+10, btnSprite->getContentSize().height, btnSprite->getContentSize().width - X * 2 /*+ starSprite->getContentSize().width*/);
-    
-	starSprite->runAction(path);
-	_emitter->runAction(path->clone());
-    
-	//∞¥≈•1
-	auto btnSprite1 = Sprite::create("btn1.png");
-	btnSprite1->setPosition(Point(600, 250));
-	btnSprite1->setAnchorPoint(Point(0, 0));
-	this->addChild(btnSprite1, 10);
-    
-	auto path1 = MyPathFun(75, btnSprite1->getContentSize().height, 80);
-	auto _emitter1 = particleInit();
-	auto starSprite1 = Sprite::create("star1.png");
-	starSprite1->setScale(0.4f);
-	this->addChild(starSprite1, 10);
-    
-	starSprite1->setPosition(Point(btnSprite1->getPosition().x + btnSprite1->getContentSize().height / 2 - 4, btnSprite1->getPosition().y));
-	_emitter1->setPosition(Point(btnSprite1->getPosition().x + btnSprite1->getContentSize().height / 2 - 5, btnSprite1->getPosition().y + 3));
-    
-	starSprite1->runAction(path1);
-	_emitter1->runAction(path1->clone());
-    
-    
-	//∞¥≈•2£®æÿ–Œ£©
-	auto btnSprite2 = Sprite::create("btn0.png");
-	btnSprite2->setPosition(Point(350, 150));
-	btnSprite2->setAnchorPoint(Point(0, 0));
-	this->addChild(btnSprite2, 10);
-    
-	auto path2 = MyPathFun(0, btnSprite2->getContentSize().height, btnSprite2->getContentSize().width );
-	auto _emitter2 = particleInit();
-	auto starSprite2 = Sprite::create("star1.png");
-	starSprite2->setScale(0.4f);
-	this->addChild(starSprite2, 10);
-    
-	starSprite2->setPosition(Point(btnSprite2->getPosition().x  - 2, btnSprite2->getPosition().y));
-	_emitter2->setPosition(Point(btnSprite2->getPosition().x  - 2, btnSprite2->getPosition().y + 3));
-    
-	starSprite2->runAction(path2);
-	_emitter2->runAction(path2->clone());
-    
+    match* pmatch = match::create();
+    addChild(pmatch);
     return true;
 }
 
@@ -143,10 +42,8 @@ ParticleSystem* HelloWorld::particleInit(){
 	//auto _emitter = new ParticleSystemQuad();
 	//_emitter->initWithTotalParticles(50);
     
-    
     auto _emitter = ParticleSystemQuad::createWithTotalParticles(50);
     _emitter->retain();
-    
     
 	addChild(_emitter, 10);
 	_emitter->setTexture(Director::getInstance()->getTextureCache()->addImage("point.png"));
@@ -213,7 +110,6 @@ ParticleSystem* HelloWorld::particleInit(){
 	return _emitter;
 }
 
-
 RepeatForever* HelloWorld::MyPathFun(float controlX, float controlY, float w)
 {
 	ccBezierConfig bezier1;
@@ -234,11 +130,10 @@ RepeatForever* HelloWorld::MyPathFun(float controlX, float controlY, float w)
 	return path;
 }
 
-
 void HelloWorld::menuCloseCallback(Object* pSender)
 {
     Director::getInstance()->end();
-
+    
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
