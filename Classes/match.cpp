@@ -12,7 +12,10 @@
 
 USING_NS_CC;
 
-match::match() {}
+#define MOVEDURATION 0.01f
+
+match::match() :_canbTouch(true)
+{}
 
 match::~match() {}
 
@@ -50,46 +53,16 @@ void match::createRowSprites(cocos2d::Point start, int r)
     for(int c=0; c<COL; c++)
     {
         auto sprite = Sprite::create("Icon.png");
-        int idc = CCRANDOM_0_1()*5+1;
+        Color3B color3B;
+        colorSpriteEnum randomEnum;
+        randomSprite(color3B,randomEnum);
         
-        const static Color3B WHITE;
-        const static Color3B YELLOW;
-        const static Color3B BLUE;
-        const static Color3B GREEN;
-        const static Color3B RED;
-        const static Color3B MAGENTA;
-        const static Color3B BLACK;
-        const static Color3B ORANGE;
-        const static Color3B GRAY;
-        
-        switch (idc) {
-            case 1:
-                sprite->setColor(Color3B::YELLOW);
-                _rc[r][c] = kA;
-                break;
-            case 2:
-                sprite->setColor(Color3B::BLUE);
-                _rc[r][c] = kB;
-                break;
-            case 3:
-                sprite->setColor(Color3B::GREEN);
-                _rc[r][c] = kC;
-                break;
-            case 4:
-                sprite->setColor(Color3B::RED);
-                _rc[r][c] = kD;
-                break;
-            case 5:
-                sprite->setColor(Color3B::MAGENTA);
-                _rc[r][c] = kE;
-                break;
-            default:
-                break;
-        }
+        sprite->setColor(color3B);
+        _rc[r][c] = randomEnum;
         
         addChild(sprite);
         sprite->setTag(r*ROW+c);
-        sprite->setPosition(Point(prevPt.x + sprite->getContentSize().width + 2,prevPt.y));
+        sprite->setPosition(Point(prevPt.x + sprite->getContentSize().width + 2, prevPt.y));
         prevPt = sprite->getPosition();
         
         _boxesPos[r][c] = sprite->getPosition();
@@ -161,7 +134,8 @@ void match::findSameColorsSprite(int r, int c, std::vector<Point>& collection)
         _rcSprites[r][c]->removeFromParentAndCleanup(true);
         CC_SAFE_RELEASE_NULL(_rcSprites[r][c]);
     }
-    moveSprites();
+    
+    processTouchBoxes();
 }
 
 void match::processRC(std::queue<Point>& queues, std::vector<Point>& collection, colorSpriteEnum curKc, int r, int c)
@@ -203,12 +177,30 @@ bool match::checkIfContain(const std::vector<Point>& colleciton, int r, int c)
     return true;
 }
 
-void match::moveSprites()
+void match::processTouchBoxes()
+{
+    auto act1 = CallFunc::create( std::bind(&match::moveBoxes, this));
+    auto delay = DelayTime::create(0.2f);
+    auto act2 = CallFunc::create( std::bind(&match::bornBoxes, this));
+    auto sequence = Sequence::create(act1,delay,act2,nullptr);
+    this->runAction(sequence);
+}
+
+void match::moveBoxes()
 {
     for(int c=0; c<COL; c++)
-        moveRowBoxes(c);
-    
-    showDestroyBoxes();
+       moveRowBoxes(c);
+}
+
+void match::bornBoxes()
+{
+    for(int c=0; c<COL; c++)
+       addBoxes(c);
+}
+
+void match::resetCanbeTouch()
+{
+    _canbTouch = true;
 }
 
 void match::moveRowBoxes(int c)
@@ -251,7 +243,7 @@ void match::moveRowBoxes(int c)
         if(sprite)
         {
             Point pt = destinations[i];
-            MoveTo *moveto = MoveTo::create(0.5f, pt);
+            MoveTo *moveto = MoveTo::create(MOVEDURATION, pt);
             sprite->runAction(moveto);
             
             _rc[r-cnt][c] = _rc[r][c];
@@ -260,6 +252,40 @@ void match::moveRowBoxes(int c)
             _rcSprites[r-cnt][c] = _rcSprites[r][c];
             _rcSprites[r][c] = nullptr;
         }
+    }
+}
+
+void match::addBoxes(int c)
+{
+    int cnt = 0;
+    for(int r=ROW-1; r>=0; r--)
+    {
+        if(_rc[r][c] == kUnSigned)
+            cnt += 1;
+    }
+    
+    for(int x=0; x<cnt; x++)
+    {
+        int r = ROW-1-x;
+        Point pt = _boxesPos[r][c];
+        
+        auto sprite = Sprite::create("Icon.png");
+        Color3B color3B;
+        colorSpriteEnum randomEnum;
+        randomSprite(color3B,randomEnum);
+        
+        sprite->setColor(color3B);
+        _rc[r][c] = randomEnum;
+        
+        addChild(sprite);
+        sprite->setTag(r*ROW+c);
+        sprite->setPosition(pt);
+        _rcSprites[r][c] = sprite;
+        sprite->retain();
+        
+        sprite->setPosition(Point(pt.x, pt.y + 100));
+        MoveTo* moveto = MoveTo::create(MOVEDURATION, pt);
+        sprite->runAction(moveto);
     }
 }
 
@@ -307,6 +333,48 @@ void match::freshboxes(float dt)
     unschedule(schedule_selector(match::freshboxes));
     for(int c=0; c<COL; c++){
     }
+}
+
+
+void match::randomSprite(Color3B& color3B, colorSpriteEnum& randomEnum)
+{
+    int idc = CCRANDOM_0_1()*5+1;
+    
+    const static Color3B WHITE;
+    const static Color3B YELLOW;
+    const static Color3B BLUE;
+    const static Color3B GREEN;
+    const static Color3B RED;
+    const static Color3B MAGENTA;
+    const static Color3B BLACK;
+    const static Color3B ORANGE;
+    const static Color3B GRAY;
+    
+    switch (idc) {
+        case 1:
+            color3B = Color3B::YELLOW;
+            randomEnum = kA;
+            break;
+        case 2:
+            color3B = Color3B::BLUE;
+            randomEnum = kB;
+            break;
+        case 3:
+            color3B = Color3B::GREEN;
+            randomEnum = kC;
+            break;
+        case 4:
+            color3B = Color3B::RED;
+            randomEnum = kD;
+            break;
+        case 5:
+            color3B = Color3B::MAGENTA;
+            randomEnum = kE;
+            break;
+        default:
+            break;
+    }
+    return;
 }
 
 void match::onEnter()

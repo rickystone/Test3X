@@ -55,13 +55,21 @@ public:
     bool checkBundary(int r, int c);
     bool checkIfContain(const std::vector<cocos2d::Point>& colleciton, int r, int c);
     
-    void moveSprites();
     void moveRowBoxes(int c);
     void freshboxes(float dt);
     void mergeBoxes();
     
     void showDestroyBoxes();
     
+    void addBoxes(int c);
+    
+    void randomSprite(cocos2d::Color3B& color3B, colorSpriteEnum& randomEnum);
+    
+    
+    void processTouchBoxes();
+    void moveBoxes();
+    void bornBoxes();
+    void resetCanbeTouch();
 private:
     void createRowSprites(cocos2d::Point startPt, int row);
     void createRowsSprite(cocos2d::Point start,int rows);
@@ -70,8 +78,8 @@ private:
     colorSpriteEnum _rc[ROW][COL];
     cocos2d::Point _boxesPos[ROW][COL];
     cocos2d::Sprite* _rcSprites[ROW][COL];
-    
     cocos2d::Vector<cocos2d::Sprite*> _destroyBoxes;
+    bool _canbTouch;
 };
 
 #endif
